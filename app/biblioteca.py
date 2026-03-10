@@ -28,3 +28,14 @@ class Biblioteca:
                     return {"exito": False, "mensaje": f"El libro '{libro.titulo}' ya está prestado."}
 
         return {"exito": False, "mensaje": "Libro no encontrado."}
+
+    def devolver_libro(self, titulo: str):
+        for libro in self.libros:
+            if libro.titulo.lower() == titulo.lower():
+                if not libro.disponible:
+                    libro.disponible = True
+                    return {"exito": True, "mensaje": f"Libro '{libro.titulo}' devuelto correctamente."}
+                else:
+                    return {"exito": False, "mensaje": f"El libro '{libro.titulo}' ya estaba disponible."}
+
+        return {"exito": False, "mensaje": "Libro no encontrado en el sistema."}
