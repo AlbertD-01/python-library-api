@@ -32,4 +32,10 @@ async def buscar_libro_por_titulo(titulo: str):
 async def prestar_libro(titulo: str):
     resultado = mi_biblioteca.prestar_libro(titulo)
 
-    return resultado 
+    return resultado
+
+@app.post("/libros/devolver")
+async def devolver_libro(titulo: str):
+    resultado = mi_biblioteca.devolver_libro(titulo)
+    
+    return resultado
