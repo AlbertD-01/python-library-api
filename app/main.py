@@ -22,3 +22,7 @@ async def crear_libro(nuevo_libro: Libro):
         "message": mensaje,
         "libro_guardado": nuevo_libro
     }
+
+@app.get("/libros/buscar")
+async def buscar_libro_por_titulo(titulo: str):
+    return mi_biblioteca.buscar_por_titulo(titulo)
