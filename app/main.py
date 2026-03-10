@@ -1,12 +1,16 @@
 from fastapi import FastAPI
 from libro import Libro
+from biblioteca import Biblioteca
 
-app = FastAPI()
+app = FastAPI(title="Mi API de Biblioteca")
 
-@app.get("/")
-async def root():
-    return {"message": "Fase 2 completada: Gestión de libro lista"}
+mi_biblioteca = Biblioteca()
+
+@app.get("/libros/")
+async def listar_libros():
+    return mi_biblioteca.consultar_libros()
 
 @app.post("/libros/")
-async def crear_libro(libro: Libro):
-    return {"mensaje": "Libro recibido", "datos": libro}
+async def añadir_libro(libro: Libro):
+    mensaje = mi_biblioteca.agregar_libro(libro)
+    return {"status": "success", "message": mensaje}
