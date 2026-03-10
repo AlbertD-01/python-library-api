@@ -10,3 +10,10 @@ class Biblioteca:
 
     def consultar_libros(self):
         return self.libros
+
+    def buscar_por_titulo(self, titulo: str):
+        resultados = [
+            libro for libro in self.libros
+            if titulo.lower() in libro.titulo.lower()
+        ]
+        return resultados
