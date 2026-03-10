@@ -1,0 +1,12 @@
+from typing import List
+from libro import Libro
+class Biblioteca:
+    def __init__(self):
+        self.libros: List[Libro] = []
+
+    def agregar_libro(self, libro: Libro):
+        self.libros.append(libro)
+        return f"Libro '{libro.titulo}' agregado correctamente."
+
+    def consultar_libros(self):
+        return self.libros
