@@ -39,3 +39,9 @@ async def devolver_libro(titulo: str):
     resultado = mi_biblioteca.devolver_libro(titulo)
     
     return resultado
+
+
+@app.get("/estadisticas")
+async def ver_estadisticas():
+
+    return mi_biblioteca.obtener_estadisticas()
