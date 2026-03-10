@@ -1,1 +1,4 @@
-Requerimientos
+fastapi[standard]
+pydantic 
+
+Escribir "pip install -r requirements.txt" en la terminal. 
