@@ -13,3 +13,12 @@ async def root():
 @app.get("/libros")
 async def obtener_catalogo():
     return mi_biblioteca.consultar_libros()
+
+@app.post("/libros", status_code=201)
+async def crear_libro(nuevo_libro: Libro):
+    mensaje = mi_biblioteca.agregar_libro(nuevo_libro)
+    return {
+        "status": "success",
+        "message": mensaje,
+        "libro_guardado": nuevo_libro
+    }
