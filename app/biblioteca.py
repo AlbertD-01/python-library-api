@@ -39,3 +39,14 @@ class Biblioteca:
                     return {"exito": False, "mensaje": f"El libro '{libro.titulo}' ya estaba disponible."}
 
         return {"exito": False, "mensaje": "Libro no encontrado en el sistema."}
+
+    def obtener_estadisticas(self):
+        total = len(self.libros)
+        disponibles = len([libro for libro in self.libros if libro.disponible])
+        prestados = total - disponibles
+
+        return {
+            "total_libros": total,
+            "libros_disponibles": disponibles,
+            "libros_prestados": prestados
+        }
